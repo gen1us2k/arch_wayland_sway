@@ -259,7 +259,8 @@ bar {
 
 include /etc/sway/config.d/*
 
-exec --no-startup-id /usr/bin/sway-xkb-switcher
+#exec --no-startup-id /usr/bin/sway-xkb-switcher
+exec --no-startup-id /usr/bin/swaykbdd
 exec --no-startup-id /usr/bin/redshift-gtk
 exec /usr/bin/google-chrome-unstable
 exec /usr/bin/slack --enable-features=UseOzonePlatform --ozone-platform=wayland
