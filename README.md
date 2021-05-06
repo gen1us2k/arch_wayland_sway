@@ -209,3 +209,11 @@ sudo systemctl enable iwd
 ```
 
 ## Copy dotfiles and enjoy
+
+## Keyboard layout per window
+
+```
+yay -S swaykbdd
+```
+
+Add `exec --no-startup-id swaykbdd` to your sway config file
