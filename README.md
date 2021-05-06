@@ -1,5 +1,6 @@
 # arch_wayland_sway
 An example of installing arch linux with wayland and sway to Lenovo Thinkpad t14 Gen 1
+```
    74  sudo pacman -S man
    79  sudo pacman -S python-pip
   127  sudo pacman -S pulseaudio-alsa pamixer pavolume 
@@ -43,3 +44,4 @@ An example of installing arch linux with wayland and sway to Lenovo Thinkpad t14
   538  sudo pacman -S slurp
   540  sudo pacman -S wl-copy grim
   541  sudo pacman -S wl-clipboard grim
+  ```
