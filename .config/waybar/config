@@ -1,0 +1,84 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 25,
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["pulseaudio", "network", "temperature", "cpu", "memory", "battery", "idle_inhibitor", "clock", "tray", "custom/lang", "custom/checkupdates"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "disable-click": true,
+    },
+    "tray": {
+        "spacing": 10,
+    },
+    "clock": {
+        "format": "{:%Y %b %d %R}"
+    },
+    "custom/japan": {
+        "format": "{}",
+        "exec": "TZ=Asia/Tokyo date \"+%H:%M %Z\"",
+        "interval": 30,
+    },
+    "cpu": {
+        "format": " {usage}%"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "temperature": {
+        "critical-threshold": 75,
+        "format": " {temperatureC}°C"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "full-at": 95,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-disconnected": "⚠ Disconnected"
+    },
+    "custom/checkupdates": {
+      "exec": "~/.config/checkupdates.sh",
+      "return-type": "json",
+      "interval": 7200,
+      "format": " {}",
+      "on-click": "kitty -e pamac upgrade && pkill -SIGRTMIN+8 waybar",
+      "signal": 8
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "custom/lang": {
+      "exec": "swaymsg -t get_inputs | grep layout_name | grep -v En | awk 'END{if(NR == 0){print \"EN\"}else{print toupper(substr($2,2,2))}}'",
+      "interval": 1,
+      "format": "{} "
+    },
+    "custom/ddcutil": {
+      "format": "{percentage}% {icon}",
+      "interval": 1,
+      "format-icons": ["", "", ""],
+      "exec": "~/.config/waybar-ddcutil.py",
+      "return-type": "json"
+    },
+}
